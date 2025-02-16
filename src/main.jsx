@@ -8,16 +8,20 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Blog from "./pages/Blog.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
+import Shop from "./pages/Shop.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/blog" element={<Blog />}></Route>
           <Route path="/contact" element={<ContactUs />}></Route>
+          <Route path="/shop" element={<Shop />}></Route>
+          <Route path="/shop/:id" element={<ProductDetails />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
