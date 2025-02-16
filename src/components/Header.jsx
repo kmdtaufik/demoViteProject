@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-// import React from "react";
+import { Icon } from "@iconify/react";
 
 const Header = () => {
   return (
@@ -51,6 +51,9 @@ const Header = () => {
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </button>
+        <Link>
+          <Icon icon="mdi:cart-outline" width="24" height="24" />
+        </Link>
       </div>
     </header>
   );

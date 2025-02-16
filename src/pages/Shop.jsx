@@ -26,17 +26,23 @@ const Shop = () => {
               </a>
               <div className="mt-4">
                 <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  {product.category.toUpperCase()}
+                  {product?.category}
                 </h3>
                 <h2 className="text-gray-900 title-font text-lg font-medium">
                   {product.title}
                 </h2>
-                <p className="mt-1">${product.price.toFixed(2)}</p>
+                <p className="mt-1">${product?.price}</p>
                 <Link
                   to={`/shop/${product.id}`}
-                  className="mt-2 inline-block text-center w-full text-black bg-white border-2 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded"
+                  className="mt-2 rounded-md inline-block text-center w-full text-black bg-white border-2 py-2 px-4 focus:outline-none "
                 >
                   See Details
+                </Link>
+                <Link
+                  // to={`/shop/${product.id}`}
+                  className="mt-2 rounded-md inline-block text-center w-full text-white bg-black border-2 py-2 px-4 focus:outline-none "
+                >
+                  Add to Cart
                 </Link>
               </div>
             </div>
