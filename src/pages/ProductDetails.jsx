@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useCartContext } from "../context/CartContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart } = useCartContext();
 
   useEffect(() => {
     axios
@@ -33,7 +35,10 @@ const ProductDetails = () => {
               <span className="title-font font-medium text-2xl text-gray-900">
                 ${product?.price}
               </span>
-              <button className="flex ml-auto text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded">
+              <button
+                onClick={() => addToCart(product)}
+                className="flex ml-auto text-white bg-black border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded"
+              >
                 Add to Cart
               </button>
             </div>
