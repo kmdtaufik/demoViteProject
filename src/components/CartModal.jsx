@@ -8,7 +8,14 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useCartContext } from "../context/CartContext";
 
 const CartModal = () => {
-  const { isCartOpen, closeCart, cartItems, removeFromCart } = useCartContext();
+  const {
+    isCartOpen,
+    closeCart,
+    cartItems,
+    removeFromCart,
+    incrementQuantity,
+    decrementQuantity,
+  } = useCartContext();
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -32,7 +39,7 @@ const CartModal = () => {
                 <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                   <div className="flex items-start justify-between">
                     <DialogTitle className="text-lg font-medium text-gray-900">
-                      Shopping Cart
+                      Shopping Cart ({cartItems.length})
                     </DialogTitle>
                     <button
                       onClick={closeCart}
@@ -65,12 +72,28 @@ const CartModal = () => {
                                 </p>
                               </div>
                               <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">
-                                  Qty {product.quantity}
-                                </p>
+                                <div className="flex items-center gap-2">
+                                  <button
+                                    onClick={() =>
+                                      decrementQuantity(product.id)
+                                    }
+                                    className="px-2 py-1 border rounded hover:bg-gray-100"
+                                  >
+                                    -
+                                  </button>
+                                  <span>{product.quantity}</span>
+                                  <button
+                                    onClick={() =>
+                                      incrementQuantity(product.id)
+                                    }
+                                    className="px-2 py-1 border rounded hover:bg-gray-100"
+                                  >
+                                    +
+                                  </button>
+                                </div>
                                 <button
                                   onClick={() => removeFromCart(product.id)}
-                                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                                  className="font-medium text-red-600 hover:text-red-500"
                                 >
                                   Remove
                                 </button>
