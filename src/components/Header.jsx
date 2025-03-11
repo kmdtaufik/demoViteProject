@@ -12,11 +12,7 @@ const Header = () => {
           to="/"
           className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0"
         >
-          <img
-            src="/src/assets/logo.webp"
-            alt="Logo"
-            className="h-[24px] w-[24px]"
-          />
+          <img src="/logo.png" alt="Logo" className="h-[24px] w-[24px]" />
           <span className="ml-3 text-xl">SwiftCart</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
